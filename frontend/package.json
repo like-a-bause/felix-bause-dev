@@ -1,0 +1,11 @@
+{
+  "name": "felix.bause.dev",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Felix B. Bause",
+  "license": "MIT",
+  "devDependencies": {
+    "@picocss/pico": "^1.5.7",
+    "fontawesome-free": "^1.0.4"
+  }
+}

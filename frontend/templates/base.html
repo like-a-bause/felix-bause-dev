@@ -1,0 +1,42 @@
+{% import "macros/social.html" as social_macros %}
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ get_url(path='style.css') }}"/>
+    {% block head_extend %}{% endblock %}
+</head>
+
+<body>
+<nav class="container nav">
+    <ul>
+        <li>
+            <a class="contrast" href="/felix.bause.dev/frontend/static"><strong>Felix B. Bause</strong></a>
+        </li>
+    </ul>
+    <ul>
+        <li><a href="{{ get_url(path='@/blog/_index.md') }}"> Blog </a></li>
+        <li><a href="{{ get_url(path='@/cv/_index.md') }}">CV</a></li>
+        <li>
+            <a class="switcher theme-switcher contrast"><i class="fas fa-moon" aria-hidden="true" title="Dark"></i></a>
+        </li>
+    </ul>
+</nav>
+
+<main class="container">
+    {% block content %}{% endblock %}
+</main>
+
+
+<footer class="container">
+    <div class="grid">
+        {{ social_macros::social_links(social_config=config.extra.social) }}
+    </div>
+</footer>
+
+<script src="{{ get_url(path='js/theme-switcher.js')}}" />
+<script src="{{ get_url(path='js/search.js')}}" />
+</body>
+</html>

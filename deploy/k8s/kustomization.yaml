@@ -1,0 +1,8 @@
+resources:
+  - deployment.yaml
+  - service.yaml
+  - ingress.yaml
+namespace: felix-bause-dev
+images:
+  - name: ghcr.io/like-a-bause/felix-bause-dev
+    newTag: v0.1.0

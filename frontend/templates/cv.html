@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% block content %}
+<article class="cv">
+    <section>
+        <hgroup>
+            <h1 class="title">
+                Curriculum Vitae
+            </h1>
+            <h2>
+                Technical Lead - Senior Software Engineer
+            </h2>
+        </hgroup>
+        <div class="cv-intro">
+            <div class="profile-pic">
+                <img src="{{ get_url(path='img/portrait2022_256x256.png')}}" class="profile-image"/>
+            </div>
+            <div class="intro">
+                I am an experienced Software Engineer with a broad knowledge of application development and
+                infrastructure
+                architecture.</br>
+                In university I started my journey in computer engineering with implementing specialized hardware on
+                FPGAs
+                and have since then moved up several abstraction layers.
+                Nonetheless I still have that urge to strive for efficiency and speed.
+
+                Having spent all of my professional career in start-ups I see myself as a generalist with an agile
+                mindset
+                and a hands-on mentality.
+                I learned to prioritize the most crucial tasks from a technical but also from a business perspective.
+                As a Team Lead my principle is “leading by serving”. I have the strong believe that being an encouraging
+                leader yields the best results in the long run.
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Professional Experience</h2>
+            <div class="work-station-header">
+                <h3>
+                    Technical Lead
+                </h3>
+                <h4>
+                    Hanko GmbH | 2019 - Present
+                </h4>
+            </div>
+            <p>
+                At <a href="https://hanko.io">Hanko</a> we develop an authentication system based on FIDO2/webauthn also
+                known as <a href="https://passkeys.io">passkeys</a> .
+                The goal is to make passwords obsolete and enhance security as well as the user experience when logging
+                in
+                online.
+                <br>
+                We are currently working on the
+                hanko open-source authentication solution. This software is offered as a SaaS product with additional
+                features. I had a strong impact by developing and defining the software stack and cloud architecture,
+                developing the roadmap, talking with customers and mentoring the development team. Some of
+                the key components we developed are:
+            <ul>
+                <li>
+                    Hanko Authentication API - golang based FIDO authentication server
+                </li>
+                <li>
+                    Hanko Identity - Full fledged identity solution with authentication, identity management,
+                    authorization and OIDC connection.
+                </li>
+                <li>
+                    kubernetes infrastructure running on AWS and mangaged with kops
+                </li>
+                <li>
+                    hanko operator - Using the kubernetes operator framework to manage the SaaS products and let clients
+                    spawn isolated instances via a web-console
+                </li>
+            </ul>
+        <div class="work-station-header">
+            <h3>
+                Technical Lead
+            </h3>
+            <h4>
+                li - Light Instruments GmbH | 2015 - 2019
+            </h4>
+        </div>
+        <p>
+            At light instruments we developed a hardware/software combination that enhanced beamers with capabilities of video mapping.
+            In addition we implemented a content management system to schedule Images and Videos in a digital signage context.
+            As the first employee I was lucky to be part of the creation of this company from the beginning and implemented a very broad set of components and functionalities.
+            Including but not limited to:
+        <ul>
+            <li>
+                C++ graphics core utilizing OpenGL and GStreamer
+            </li>
+            <li>
+                Golang server for scene and video configuration from IPad App and CMS
+            </li>
+            <li>
+                Configuring custom Linux and provisionig toolkit (automate the creation of machines)
+            </li>
+            <li>
+                CMS golang server and AWS server infrastucture with ansible
+            </li>
+            <li>
+                Incremental over-the-air update mechanism with multi version boot and rollback mechanism
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Teaching Experience</h2>
+        <div class="work-station-header">
+            <h3>
+                Research Assistant - Software Challenge
+            </h3>
+            <h4>
+                Christian Albrechts Universität Kiel - Department of Technical Computer Science | 2011 - 2014
+            </h4>
+        </div>
+        <p>
+            The Software Challenge is an annual programming competition in which students write a player for a yearly changing board game.
+            Their programs compete against each other and the winners are awarded a scholarship for studying computer science.
+            I implemented the server side mechanics for a game and assisted teachers in schools to train the fundamentals of programming in Java.
+        </p>
+
+        <div class="work-station-header">
+            <h3>
+                Research Assistant - Exercise Group Leader
+            </h3>
+            <h4>
+                Christian Albrechts Universität Kiel - Department of Technical Computer Science | 2009 - 2010
+            </h4>
+        </div>
+        <p>
+            In my third semester I started as an exercise group leader for the course Digital Systems I.
+            Teaching first semester students the fundamtentals of computer architecture based on digital circuits, memory and automata.
+        </p>
+
+    </section>
+
+    <section>
+        <h2>Education</h2>
+
+    </section>
+</article>
+
+{% endblock content %}

@@ -1,0 +1,92 @@
+// Override default variables
+$primary-hue: 174;
+//$primary: #008a7c;
+
+$white: #f7f7f7;
+
+// Import Pico
+@import "../node_modules/@picocss/pico/scss/pico";
+
+// Import Font Awesome
+// importing core styling file
+@import "../node_modules/fontawesome-free/scss/fontawesome";
+
+// our project needs Solid + Brands
+@import "../node_modules/fontawesome-free/scss/solid";
+@import "../node_modules/fontawesome-free/scss/brands";
+
+//custom code
+
+@import "themes/light";
+@import "themes/dark";
+
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: var(--background-color);
+  box-shadow: 0 1 0 var(--secondary);
+  //backdrop-filter: blur(20px);
+  --webkit-backdrop-filter: saturate(180%) blur(20px);
+}
+
+.cv {
+  margin: 0;
+}
+
+.social-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cv-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+
+  .profile-pic {
+    display: flex;
+    flex-grow: 1;
+    justify-items: stretch;
+  }
+
+  img {
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .intro {
+    flex-grow: 3;
+    flex-basis: 66%;
+  }
+}
+
+body > main {
+  margin-top: 60px;
+}
+
+.work-station-header, .headings {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+
+  h3 {
+    flex-basis: 50%;
+    flex-grow: 1;
+    margin-bottom: 0;
+  }
+
+  h4 {
+    margin-bottom: calc( 0.5 * var(--typography-spacing-vertical));
+    --color: var(--muted-color);
+    --font-weight: unset;
+    font-size: 1rem;
+    font-family: unset;
+  }
+}

@@ -1,0 +1,5 @@
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --nav-background-color: #{rgba($white, 0.8)};
+  --nav-border-color: #{rgba($grey-500, 0.2)};
+}

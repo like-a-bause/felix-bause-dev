@@ -1,0 +1,16 @@
+[package]
+name = "felix-bause-dev"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[[bin]]
+name = "felix-bause-dev"
+path = "src/main.rs"
+
+[dependencies]
+axum = "0.6.10"
+tokio = { version = "1", features = ["full"] }
+tower = "0.4.13"
+tower-http = { version = "0.4.0", features = ["fs", "trace"] }

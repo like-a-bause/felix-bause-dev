@@ -1,0 +1,86 @@
+{% macro social_links(social_config) %}
+  {% set base_url = get_url(path="", lang=lang) %}
+
+  {% if social_config.github %}
+<div class="social-div">
+  <a class="secondary" href="https://github.com/{{ social_config.github }}" aria-label="Open {{ social_config.github }} GitHub" target="_blank">
+      <span class="icon is-large">
+        <i class="fab fa-github fa-lg" aria-hidden="true" title="GitHub"></i>
+      </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if social_config.twitter %}
+<div class="social-div">
+  <a class="secondary" href="https://twitter.com/{{ social_config.twitter }}" aria-label="Open {{ social_config.twitter }} Twitter" target="_blank">
+    <span class="icon is-large">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true" title="Twitter"></i>
+    </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if social_config.mastodon %}
+<div class="social-div">
+  <a class="secondary" href="{{ social_config.mastodon }}" aria-label="Open {{ social_config.mastodon }} Mastodon" target="_blank">
+      <span class="icon is-large">
+        <i class="fab fa-mastodon fa-lg" aria-hidden="true" title="Twitter"></i>
+      </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if social_config.linkedin %}
+<div class="social-div">
+  <a class="secondary" href="https://www.linkedin.com/in/{{ social_config.linkedin }}" aria-label="Open {{ social_config.linkedin }} LinkedIn" target="_blank">
+    <span class="icon is-large">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true" title="LinkedIn"></i>
+    </span>
+  </a>
+</div>
+  {% endif %}
+
+
+  {% if social_config.xing %}
+<div class="social-div">
+  <a class="secondary" href="https://xing.com/profile/{{ social_config.xing }}" aria-label="Open {{ social_config.xing }} xing" target="_blank">
+    <span class="icon is-large">
+      <i class="fab fa-xing fa-lg" aria-hidden="true" title="xing"></i>
+    </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if social_config.email %}
+<div class="social-div">
+  <a class="secondary" href="mailto:{{ social_config.email }}" aria-label="Email {{ social_config.email }}" target="_blank">
+    <span class="icon is-large">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true" title="email"></i>
+    </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if config.generate_feed %}
+<div class="social-div">
+  <a href="{{ base_url }}/{{ config.feed_filename }}" aria-label="Open atom xml feed" target="_blank">
+    <span class="icon is-large">
+      <i class="fas fa-rss fa-lg" aria-hidden="true" title="atom xml feed"></i>
+    </span>
+  </a>
+</div>
+  {% endif %}
+
+  {% if social_config.other %}
+  {% for social in social_config.other %}
+<div class="social-div">
+  <a href={{ social.url }} aria-label="Open {{ social.name }}" target="_blank">
+    <span class="icon is-large">
+      <i class="{{ social.font_awesome }} fa-lg" aria-hidden="true" title={{ social.name }}></i>
+    </span>
+  </a>
+</div>
+  {% endfor %}
+  {% endif %}
+{% endmacro %}

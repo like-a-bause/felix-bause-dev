@@ -1,0 +1,22 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: felix.bause.dev
+spec:
+  rules:
+    - http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: felix-bause-dev
+                port:
+                  name: http
+      host: "felix.bause.dev"
+  tls:
+    - hosts:
+        - felix.bause.dev
+      secretName: felix-bause-dev-cert

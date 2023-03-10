@@ -1,0 +1,4 @@
+@mixin dark {
+  --nav-background-color: #{rgba(darken($grey-900, 6%), 0.8)};
+  --nav-border-color: #{rgba($grey-500, 0.2)};
+}
