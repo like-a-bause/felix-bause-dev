@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h1 class="title">
+    {{ section.title }}
+</h1>
+<article>
+    <hanko-auth api="https://d253da95-fbf2-4cd7-a61a-8d4bbaf281d3.hanko.io"></hanko-auth>
+</article>
+
+<script type="module">
+    import { register } from 'https://esm.sh/@teamhanko/hanko-elements@0.2.2-alpha';
+
+    register({ shadow: true });
+    document.addEventListener('hankoAuthSuccess', (event) => {
+        console.log(event);
+        document.location.href = '/secured'
+    })
+</script>
+{% endblock content %}
