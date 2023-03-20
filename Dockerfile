@@ -15,7 +15,7 @@ COPY --from=fe_installer /app/node_modules ./node_modules
 COPY frontend/ ./
 RUN ["/bin/zola", "build"]
 
-FROM rust:slim AS be_builder
+FROM rust AS be_builder
 
 WORKDIR /app
 
