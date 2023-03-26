@@ -1,3 +1,5 @@
+mod config;
+
 use axum::{Router};
 use axum::routing::get;
 
@@ -13,6 +15,9 @@ use tower_cookies::CookieManagerLayer;
 
 #[tokio::main]
 async fn main() {
+    let settings = config::Settings::new().unwrap();
+    println!("hanko url: {}", settings.hanko.url);
+
     tracing_subscriber::registry()
         .with(
             tracing_subscriber::EnvFilter::try_from_default_env()
@@ -21,9 +26,10 @@ async fn main() {
         .with(tracing_subscriber::fmt::layer())
         .init();
 
+    let hanko_jwk = format!("{}/.well-known/jwks.json", settings.hanko.url);
     // prod:
     let jwt_auth: JwtAuthorizer<User> =
-        JwtAuthorizer::from_jwks_url("https://d253da95-fbf2-4cd7-a61a-8d4bbaf281d3.hanko.io/.well-known/jwks.json");
+        JwtAuthorizer::from_jwks_url(&hanko_jwk);
 
     // localhost:3000
     // let jwt_auth: JwtAuthorizer<User> =

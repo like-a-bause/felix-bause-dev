@@ -15,6 +15,9 @@ spec:
         - name: frontend
           image: ghcr.io/like-a-bause/felix-bause-dev:v0.1.0
           imagePullPolicy: IfNotPresent
+          env:
+            - name: RUN_MODE
+              value: prod
           ports:
             - name: http
               containerPort: 3000

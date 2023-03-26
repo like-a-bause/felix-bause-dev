@@ -20,3 +20,4 @@ tower-cookies = "0.9.0"
 tracing = "0.1"
 tracing-subscriber = { version = "0.3", features = ["env-filter"] }
 serde = "1.0.156"
+config = "0.13.3"
