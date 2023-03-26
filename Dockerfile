@@ -28,4 +28,5 @@ RUN cargo build --release
 FROM gcr.io/distroless/cc
 COPY --from=be_builder /app/target/release/felix-bause-dev /felix-bause-dev
 COPY --from=fe_builder /app/public /public
+COPY config/default.yaml /config/default.yaml
 ENTRYPOINT [ "/felix-bause-dev" ]
