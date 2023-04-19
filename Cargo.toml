@@ -11,8 +11,9 @@ path = "src/main.rs"
 
 [dependencies]
 axum = "0.6.11"
+jwt-authorizer = "0.9.0"
 #jwt-authorizer = { path  = "../jwt-authorizer/jwt-authorizer"}
-jwt-authorizer = { git = "https://github.com/like-a-bause/jwt-authorizer.git", branch = "feat-cookie-as-jwt-source" }
+#jwt-authorizer = { git = "https://github.com/like-a-bause/jwt-authorizer.git", branch = "feat-cookie-as-jwt-source" }
 tokio = { version = "1", features = ["full"] }
 tower = "0.4.13"
 tower-http = { version = "0.4.0", features = ["fs", "trace"] }

@@ -609,8 +609,9 @@ dependencies = [
 
 [[package]]
 name = "jwt-authorizer"
-version = "0.8.1"
-source = "git+https://github.com/like-a-bause/jwt-authorizer.git?branch=feat-cookie-as-jwt-source#1c4f430d011b39a13c07709a7fde80c8239b096b"
+version = "0.9.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "854e441102e68e9455dc1e44f9d796371c2bb36e854c58669c5a9eac856e7ba6"
 dependencies = [
  "axum",
  "futures-core",
@@ -624,7 +625,6 @@ dependencies = [
  "serde_json",
  "thiserror",
  "tokio",
- "tower-cookies",
  "tower-http",
  "tower-layer",
  "tower-service",

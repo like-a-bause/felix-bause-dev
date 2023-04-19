@@ -11,7 +11,6 @@ use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 use jwt_authorizer::{AuthError, JwtAuthorizer, JwtClaims};
 use jwt_authorizer::layer::JwtSource;
 use serde::Deserialize;
-use tower_cookies::CookieManagerLayer;
 
 #[tokio::main]
 async fn main() {
@@ -27,24 +26,19 @@ async fn main() {
         .init();
 
     let hanko_jwk = format!("{}/.well-known/jwks.json", settings.hanko.url);
-    // prod:
     let jwt_auth: JwtAuthorizer<User> =
-        JwtAuthorizer::from_jwks_url(&hanko_jwk);
-
-    // localhost:3000
-    // let jwt_auth: JwtAuthorizer<User> =
-    //     JwtAuthorizer::from_jwks_url("https://576702ec-9052-4732-af6a-19e40a8b57af.stg.hanko.io/.well-known/jwks.json");
+        JwtAuthorizer::from_jwks_url(&hanko_jwk)
+            .jwt_source(JwtSource::Cookie(String::from("hanko")));
 
     // subroute for privileged api calls
     let privileged_routes = Router::new()
         .route("/", get(protected))
-        .layer(jwt_auth.layer(JwtSource::Cookie(String::from("hanko"))).await.unwrap())
-        .layer(CookieManagerLayer::new());
+        .layer(jwt_auth.layer().await.unwrap());
 
     // subroute for /api
     let api_routes = Router::new()
         .nest("/privileged", privileged_routes)
-        .route("/health", get(|| async{"I'm Ok, thank you."}));
+        .route("/health", get(|| async { "I'm Ok, thank you." }));
 
     // build our application with a single route
     let app = Router::new()

@@ -5,18 +5,20 @@
     {{ section.title }}
 </h1>
 <article>
-<!--    prod-->
+    {% if config.base_url == "https://felix.bause.dev" %}
     <hanko-auth api="https://d253da95-fbf2-4cd7-a61a-8d4bbaf281d3.hanko.io"></hanko-auth>
-<!--    <hanko-auth api="https://576702ec-9052-4732-af6a-19e40a8b57af.stg.hanko.io"></hanko-auth>-->
+    {% elif config.base_url == "http://localhost:3000" %}
+    <hanko-auth api="https://576702ec-9052-4732-af6a-19e40a8b57af.stg.hanko.io"></hanko-auth>
+    {% endif %}
 </article>
 
 <script type="module">
-    import { register } from 'https://esm.sh/@teamhanko/hanko-elements@0.2.2-alpha';
+    import { register } from 'https://esm.sh/@teamhanko/hanko-elements@0.4.0-alpha';
 
     register({ shadow: true });
     document.addEventListener('hankoAuthSuccess', (event) => {
         console.log(event);
-        document.location.href = '/secured'
+        document.location.href = '/api/privileged'
     })
 </script>
 {% endblock content %}
